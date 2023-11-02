@@ -1,4 +1,4 @@
-﻿using Entities.Models;
+﻿using BusinessObjects.Models;
 using Microsoft.Identity.Client.Extensions.Msal;
 using static System.Formats.Asn1.AsnWriter;
 
@@ -41,7 +41,7 @@ namespace DataAccessObjects
             return listQuestion;
         }
 
-        public Question GetQuestionById(string id)
+        public Question GetQuestionById(int id)
         {
             using var db = new Swp391Context();
             return db.Questions.SingleOrDefault(s => s.QuestionId == id);

@@ -1,7 +1,7 @@
-﻿using Entities.Models;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
+using BusinessObjects.Models;
 
 namespace Web_API
 {

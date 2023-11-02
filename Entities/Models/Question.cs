@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Entities.Models;
+namespace BusinessObjects.Models;
 
 public partial class Question
 {
-    public string QuestionId { get; set; } = null!;
+    public int QuestionId { get; set; }
 
     public string? CategoryId { get; set; }
 
@@ -21,9 +21,7 @@ public partial class Question
 
     public string? Answers4 { get; set; }
 
+    public string? CorrectAnswer { get; set; }
+
     public virtual Category? Category { get; set; }
-
-    public virtual ICollection<SampleTest> SampleTests { get; set; } = new List<SampleTest>();
-
-    public virtual ICollection<TestAnswer> TestAnswers { get; set; } = new List<TestAnswer>();
 }

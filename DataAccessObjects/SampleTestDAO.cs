@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace DataAccessObjects
 {
-    public class UserDAO
+    public class SampleTestDAO
     {
-        public static UserDAO instance = null;
+        public static SampleTestDAO instance = null;
         public static object lockObject = new object();
 
-        private UserDAO() { }
-        public static UserDAO Instance
+        private SampleTestDAO() { }
+        public static SampleTestDAO Instance
         {
             get
             {
@@ -21,40 +21,43 @@ namespace DataAccessObjects
                 {
                     if (instance == null)
                     {
-                        instance = new UserDAO();
+                        instance = new SampleTestDAO();
                     }
                 }
                 return instance;
             }
         }
 
-        public List<User> GetUsers()
+        public List<SampleTest> GetAll()
         {
-            List<User> listUser = new List<User>();
+            List<SampleTest> listSampleTest = new List<SampleTest>();
             try
             {
                 using (var context = new Swp391Context())
                 {
-                    listUser = context.Users.ToList();
+                    listSampleTest = context.SampleTests.ToList();
                 }
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-            return listUser;
+            return listSampleTest;
         }
 
-        public User GetUserById(string id)
+        public bool InsertSampleTest(SampleTest SampleTest)
         {
             using var db = new Swp391Context();
-            return db.Users.SingleOrDefault(s => s.UserId == id);
+            db.SampleTests.Add(SampleTest);
+            db.SaveChanges();
+            return true;
         }
-
-        public User GetUserByUseNameAndPassword(string userId, string password)
+        public bool UpdaterSampleTest(SampleTest SampleTest)
         {
             using var db = new Swp391Context();
-            return db.Users.SingleOrDefault(s => s.UserId == userId && s.Password == password);
+            db.SampleTests.Update(SampleTest);
+            db.SaveChanges();
+            return true;
         }
     }
 }

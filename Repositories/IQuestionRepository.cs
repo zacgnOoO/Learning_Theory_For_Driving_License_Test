@@ -1,4 +1,4 @@
-﻿using Entities.Models;
+﻿using BusinessObjects.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ namespace Repositories
     public interface IQuestionRepository
     {
         List<Question> GetAllQuestions();
-        Question GetById(string id);
+        Question GetById(int id);
         bool InsertQuestion(Question question);
         bool UpdateQuestion(Question question);
     }

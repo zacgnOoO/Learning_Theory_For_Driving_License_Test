@@ -1,5 +1,5 @@
-﻿using DataAccessObjects;
-using Entities.Models;
+﻿using BusinessObjects.Models;
+using DataAccessObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ namespace Repositories
     {
         public List<Question> GetAllQuestions() => QuestionDAO.Instance.GetQuestion();
  
-        public Question GetById(string id) => QuestionDAO.Instance.GetQuestionById(id);
+        public Question GetById(int id) => QuestionDAO.Instance.GetQuestionById(id);
 
         public bool InsertQuestion(Question question) => QuestionDAO.Instance.InsertQuestion(question);
 

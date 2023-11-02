@@ -1,8 +1,8 @@
-﻿using Entities.Models;
+﻿using BusinessObjects.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Repositories;
-using Services.Service;
+
 
 namespace Web_API.Controllers
 {
@@ -20,14 +20,14 @@ namespace Web_API.Controllers
         [HttpGet("getallquestion")]
         public IActionResult GetAll()
         {
-            var questions = _questionRepository.GetAllQuestions;
+            List<Question> questions = _questionRepository.GetAllQuestions();
             return Ok(questions);
         }
 
         [HttpGet("getquestionbyid")]
-        public IActionResult GetQuestionById(string id) 
+        public IActionResult GetQuestionById(int id) 
         {
-            var questions = _questionRepository.GetById(id);
+            Question questions = _questionRepository.GetById(id);
             return Ok(questions);
         }
 
