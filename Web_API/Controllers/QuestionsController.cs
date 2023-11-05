@@ -8,6 +8,7 @@ namespace Web_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class QuestionsController : ControllerBase
     {
         private IQuestionRepository _questionRepository;
@@ -24,11 +25,17 @@ namespace Web_API.Controllers
             return Ok(questions);
         }
 
-        [HttpGet("getquestionbyid")]
+        [HttpGet("{id}")]
         public IActionResult GetQuestionById(int id) 
         {
             Question questions = _questionRepository.GetById(id);
             return Ok(questions);
+        }
+        [HttpPut("uppdate")]
+        public IActionResult UpdateQuestion(Question question) 
+        {
+        var questions = _questionRepository.UpdateQuestion(question);
+            return Ok("Update succesfully");
         }
 
         [HttpPost("insertquestion")]

@@ -12,5 +12,7 @@ namespace Repositories
         User GetUserByUseNameAndPassword(string username, string password);
         User GetUserById(string id);
         IEnumerable<User> GetAllUser();
+
+        bool RegisterUser(User user);
     }
 }

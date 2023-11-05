@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using BusinessObjects.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Repositories;
 using Services.Service;
 using Services.ViewModel;
 
@@ -12,6 +14,7 @@ namespace Web_API.Controllers
     public class UsersController : ControllerBase
     {
         private IUsersService _userService;
+        private IUserRepository _userRepository;
 
         public UsersController(IUsersService userService)
         {
@@ -35,6 +38,13 @@ namespace Web_API.Controllers
         {
             var users = _userService.GetAll();
             return Ok(users);
+        }
+
+        [HttpPost("insertnewuser")]
+        public IActionResult InsertNewStudent(User user)
+        {
+            var users = _userRepository.RegisterUser(user);
+            return Ok("Insert successfully1!");
         }
 
     }

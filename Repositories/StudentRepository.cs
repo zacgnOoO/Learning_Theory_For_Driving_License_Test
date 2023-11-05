@@ -10,10 +10,13 @@ namespace Repositories
 {
     public class StudentRepository : IStudentRepository
     {
+        public List<Student> GetAllStudents() => StudentsDAO.Instance.GetAllStudents();
+
         public Student GetStudentById(string id) => StudentsDAO.Instance.GetStudentById(id);
 
-        public void InsertStudent(Student student) => StudentsDAO.Instance.InsertStudent(student);
+        public bool InsertStudent(Student student) => StudentsDAO.Instance.InsertStudent(student);
 
-        public void UpdateStudent(Student student) => StudentsDAO.Instance.UpdaterStudent(student);
+        public bool UpdateStudent(Student student) => StudentsDAO.Instance.UpdaterStudent(student);
+   
     }
 }

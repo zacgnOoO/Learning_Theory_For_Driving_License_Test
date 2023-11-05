@@ -7,6 +7,7 @@ namespace Web_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class SampleTestController : ControllerBase
     {
         private ISampleTestRepository _SampleTestRepository;

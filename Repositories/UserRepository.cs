@@ -16,6 +16,8 @@ namespace Repositories
         public User GetUserById(string id) => UserDAO.Instance.GetUserById(id);
 
         public IEnumerable<User> GetAllUser() => UserDAO.Instance.GetUsers();
+
+        public bool RegisterUser(User user) => UserDAO.Instance.InsertUser(user);
     }
 
 }

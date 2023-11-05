@@ -10,7 +10,8 @@ namespace Repositories
     public interface IStudentRepository
     {
         Student GetStudentById(string id);
-        void InsertStudent(Student student);
-        void UpdateStudent(Student student);    
+        bool InsertStudent(Student student);
+        bool UpdateStudent(Student student);    
+        List<Student> GetAllStudents();
     }
 }

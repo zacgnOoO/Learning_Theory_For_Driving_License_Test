@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace DataAccessObjects
 {
-    public class StudentsDAO
+    public class StaffDAO
     {
-        public static StudentsDAO instance = null;
+        public static StaffDAO instance = null;
         public static object lockObject = new object();
 
-        private StudentsDAO() { }
-        public static StudentsDAO Instance
+        private StaffDAO() { }
+        public static StaffDAO Instance
         {
             get
             {
@@ -21,52 +21,55 @@ namespace DataAccessObjects
                 {
                     if (instance == null)
                     {
-                        instance = new StudentsDAO();
+                        instance = new StaffDAO();
                     }
                 }
                 return instance;
             }
         }
-        public List<Student> GetAllStudent()
+
+        public List<Staff> GetAllStaff()
         {
-            List<Student> listStudent = new List<Student>();
+            List<Staff> listStaff = new List<Staff>();
             try
             {
                 using (var context = new Swp391Context())
                 {
-                    listStudent = context.Students.ToList();
+                    listStaff = context.Staff.ToList();
                 }
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-            return listStudent;
+            return listStaff;
         }
 
-        public List<Student> GetAllStudents()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Student GetStudentById(string id)
+        public Staff GetStaffById(string id)
         {
             using var db = new Swp391Context();
-            return db.Students.SingleOrDefault(s => s.StudentId==id);
+            return db.Staff.SingleOrDefault(s => s.StaffId == id);
         }
-
-        public bool InsertStudent(Student student)
+        public bool InsertStaff(Staff staff)
         {
             using var db = new Swp391Context();
-            db.Students.Add(student);
+            db.Staff.Add(staff);
             db.SaveChanges();
             return true;
         }
 
-        public bool UpdaterStudent(Student student)
+        public bool UpdaterStaff(Staff staff)
         {
             using var db = new Swp391Context();
-            db.Students.Update(student);
+            db.Staff.Update(staff);
+            db.SaveChanges();
+            return true;
+        }
+
+        public bool DeleteStaff(Staff staff)
+        {
+            using var db = new Swp391Context();
+            db.Staff.Remove(staff);
             db.SaveChanges();
             return true;
         }

@@ -44,7 +44,6 @@ namespace DataAccessObjects
             }
             return listUser;
         }
-
         public User GetUserById(string id)
         {
             using var db = new Swp391Context();
@@ -56,5 +55,21 @@ namespace DataAccessObjects
             using var db = new Swp391Context();
             return db.Users.SingleOrDefault(s => s.UserId == userId && s.Password == password);
         }
+
+        public bool InsertUser(User user)
+        {
+            try
+            {
+                using var db = new Swp391Context();
+                db.Users.Add(user);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        
     }
 }
