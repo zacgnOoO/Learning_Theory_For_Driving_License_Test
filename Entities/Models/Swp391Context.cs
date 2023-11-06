@@ -158,7 +158,7 @@ public partial class Swp391Context : DbContext
                 .HasNoKey()
                 .ToTable("StudentTest");
 
-            entity.Property(e => e.AnswerChoose)
+            object value = entity.Property(e => e.AnswerChoose)
                 .HasMaxLength(255)
                 .IsFixedLength();
             entity.Property(e => e.IsCorrect)

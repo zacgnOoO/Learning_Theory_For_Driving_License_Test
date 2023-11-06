@@ -10,7 +10,7 @@ public partial class StudentTest
     public string? StudentId { get; set; }
 
     public int? QuestionId { get; set; }
-    public string AnswerChooseId { get; set; }
+    public string AnswerChoose { get; set; }
     public bool IsCorrect { get; set; }
 
     public virtual Question? Question { get; set; }
