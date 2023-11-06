@@ -45,6 +45,21 @@ namespace DataAccessObjects
             }
         }
 
+        public QuestionSampleTest? GetBySampleTestIdAndQuestionId(string sampleTestId, int questId)
+        {
+            try
+            {
+                using (var context = new Swp391Context())
+                {
+                    var rs = context.QuestionSampleTests.SingleOrDefault(s => s.SampleTestId == sampleTestId && s.QuestionId == questId);
+                    return rs;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
 
     }
 }

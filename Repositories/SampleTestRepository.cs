@@ -16,7 +16,7 @@ namespace Repositories
         {
             return QuestionSampleTestDAO.Instance.GetBySampleTestId(id);
         }
-
+        public QuestionSampleTest? GetBySampleTestIdAndQuestionId(string sampleTestId, int questId) => QuestionSampleTestDAO.Instance.GetBySampleTestIdAndQuestionId(sampleTestId, questId);
         public bool InsertSampleTest(SampleTest sampleTest) => SampleTestDAO.Instance.InsertSampleTest(sampleTest);
 
         public bool UpdateSampleTest(SampleTest sampleTest) => SampleTestDAO.Instance.UpdaterSampleTest(sampleTest);

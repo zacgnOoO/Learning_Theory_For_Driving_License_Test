@@ -35,6 +35,17 @@ namespace Web_API.Controllers
             return Ok(sampletestInfo);
         }
 
+        [HttpGet("GetBySampleTestIdAndQuestionId")]
+        public IActionResult GetBySampleTestIdAndQuestionId(string sampleId, int questId)
+        {
+            QuestionSampleTest sampletestInfo = _SampleTestRepository.GetBySampleTestIdAndQuestionId(sampleId,questId);
+            if (sampletestInfo == null)
+            {
+                return NotFound();
+            }
+            return Ok(sampletestInfo);
+        }
+
         [HttpPost("insertsampletest")]
         public IActionResult InsertSampleTest(SampleTest sampletest)
         {

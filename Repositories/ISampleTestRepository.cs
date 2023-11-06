@@ -11,6 +11,7 @@ namespace Repositories
     {
         List<SampleTest> GetAllSampleTests();
         List<QuestionSampleTest> GetById(string id);
+        QuestionSampleTest? GetBySampleTestIdAndQuestionId(string sampleTestId, int questId);
         bool InsertSampleTest(SampleTest sampleTest);
         bool UpdateSampleTest(SampleTest sampleTest);
     }
