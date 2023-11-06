@@ -1,11 +1,8 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
 using Repositories;
 using Services.Service;
-using System.Text;
 using Web_API;
+using Microsoft.OpenApi.Models; 
 
 
 var builder = WebApplication.CreateBuilder(args);
