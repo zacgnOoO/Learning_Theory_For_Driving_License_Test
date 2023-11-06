@@ -35,7 +35,7 @@ namespace DataAccessObjects
             {
                 using (var context = new Swp391Context())
                 {
-                    var rs = context.QuestionSampleTests.Where(s => s.SampleTestId == sampleTestId).Include(q => q.Question).Include(s => s.SampleTest);
+                    var rs = context.QuestionSampleTests.Where(s => s.SampleTestId == sampleTestId).Include(q => q.Question);
                     return rs != null ? rs.ToList() : null;
                 }
             }
