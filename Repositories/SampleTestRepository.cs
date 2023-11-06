@@ -12,7 +12,7 @@ namespace Repositories
     {
         public List<SampleTest> GetAllSampleTests() => SampleTestDAO.Instance.GetAll();
 
-        public QuestionSampleTest? GetById(string id)
+        public List<QuestionSampleTest> GetById(string id)
         {
             return QuestionSampleTestDAO.Instance.GetBySampleTestId(id);
         }

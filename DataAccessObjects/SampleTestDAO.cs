@@ -1,4 +1,5 @@
 ﻿using BusinessObjects.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,6 +45,12 @@ namespace DataAccessObjects
             }
             return listSampleTest;
         }
+        public Question GetQuestionById(int id)
+        {
+            using var db = new Swp391Context();
+            return db.Questions.SingleOrDefault(s => s.QuestionId == id);
+        }
+
 
         public bool InsertSampleTest(SampleTest SampleTest)
         {

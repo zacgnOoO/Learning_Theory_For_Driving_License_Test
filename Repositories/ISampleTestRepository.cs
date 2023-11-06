@@ -10,7 +10,7 @@ namespace Repositories
     public interface ISampleTestRepository
     {
         List<SampleTest> GetAllSampleTests();
-        QuestionSampleTest? GetById(string id);
+        List<QuestionSampleTest> GetById(string id);
         bool InsertSampleTest(SampleTest sampleTest);
         bool UpdateSampleTest(SampleTest sampleTest);
     }

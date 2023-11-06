@@ -24,10 +24,10 @@ namespace Web_API.Controllers
             return Ok(sampletest);
         }
 
-        [HttpGet("getsampleinfobyid")]
+        [HttpGet("GetSampleTestById")]
         public IActionResult GetSampleTestById(string id)
         {
-            QuestionSampleTest? sampletestInfo = _SampleTestRepository.GetById(id);
+            List<QuestionSampleTest> sampletestInfo = _SampleTestRepository.GetById(id);
             if(sampletestInfo == null)
             {
                 return NotFound();

@@ -1,4 +1,5 @@
 ﻿using BusinessObjects.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,14 +29,14 @@ namespace DataAccessObjects
             }
         }
 
-        public QuestionSampleTest? GetBySampleTestId(string sampleTestId)
+        public List<QuestionSampleTest> GetBySampleTestId(string sampleTestId)
         {
             try
             {
                 using (var context = new Swp391Context())
                 {
-                   
-                    return context.QuestionSampleTests.SingleOrDefault(s => s.SampleTestId == sampleTestId);
+                    var rs = context.QuestionSampleTests.Where(s => s.SampleTestId == sampleTestId).Include(q => q.Question).Include(s => s.SampleTest);
+                    return rs != null ? rs.ToList() : null;
                 }
             }
             catch (Exception ex)
